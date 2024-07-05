@@ -3,8 +3,8 @@
     var scroll_event_object = $(".header");
     var main_section04 = $(".section04");
 
-
     $(window).scroll(function () {
+        // header
         var scroll_top = $(this).scrollTop();
         var main_section04_top = main_section04.offset().top;
         var main_section04_bottom = main_section04_top + main_section04.innerHeight();
@@ -16,11 +16,8 @@
         }else{
             scroll_event_object.removeClass("scroll_on");
         }
-    });
-    // ●header end●
-    // ●divider class●
-    $(window).scroll( function(){
-        // 적용 시킬 개체의 class명
+        // header end
+        // divider
         $('.divider').each( function(i){
             var bottom_of_element = $(this).offset().top + $(this).outerHeight() / 3;
             var bottom_of_window = $(window).scrollTop() + $(window).height();
@@ -29,7 +26,7 @@
                 $(this).addClass('line_slide')
             }          
         }); 
+        // divider end
     });
-    // ●divider class end●
 })(jQuery);
 
