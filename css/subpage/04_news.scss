@@ -1,0 +1,134 @@
+@import '../_mixin', '../_variables';
+
+$radius:.5em;
+// 소셜미디어 공유
+.cosmosfarm-share-buttons{margin: 0 0 20px 0 !important;
+  .cosmosfarm-share-button-title{display: none !important;}
+  #copy-url{padding: 0; border: none; background-color: transparent;}
+  #my-url{position: absolute; left: -9999%;}
+}
+// 소셜미디어 공유 end
+.sub04_section02{
+  #kboard-ocean-gallery-list{
+    .kboard-gallery-foreground, .kboard-gallery-username{display: none !important;}
+    .kboard-header .kboard-category{padding-bottom: 12em;
+      .kboard-category-list{margin: 0; border: none; @include flex_gap(1.25em);justify-content: center;
+        li{font-size: 1vw; padding: 0;
+          a{padding:  0.2em 1.25em; border: 1px solid $color_grey_02; border-radius: 5em; font-size: clamp(14px, 0.9375em, 0.9375em); color: $color_grey_02; font-weight: 400; transition: all 0.3s;
+          }
+          &.kboard-category-selected a, a:hover{border: 1px solid #000; background-color: #000; color: #fff;}
+        }
+      }
+    }
+    .kboard-list{display: flex; flex-wrap: wrap; gap: 3em 2.5em;
+      .kboard-gallery-item{width: calc(50% - 1.25em); padding: 0;
+        a{@include flex_column; gap: 1.25em; font-size: 1vw;
+          .kboard-gallery{
+            &-title{@include h3; text-align: left; height: auto; line-height: 1; display: block; color: #000; transition: .3s; padding-bottom: 5px;}
+            &-thumbnail{@include size(100%, 100%); float: none; border-radius: $radius; overflow: hidden; margin: 0;
+              img{@include size(100%, 100%);}
+            }
+            &-info{@include flex($justify:space-between); color: #000; @include h4;
+              .kboard-list-category1{font-size: 12px; padding: 0em 1.25em; @include border; border-radius: 50px;}
+            }
+          }
+          &:hover{
+            .kboard-gallery{
+              &-title{color: $main_color_01;}
+              &-info{color: #000;}
+            }
+          }
+        }
+        &:nth-child(even){margin-top: 8em;}
+      }
+    }
+    .kboard-pagination{padding: 8em 0 1em;
+      .kboard-pagination-pages{padding: 0;
+        li{padding: 0 $radius;
+          a{padding: 0; background-color: transparent; border: none !important; @include link; color: $color_grey_01;}
+          &.active a{font-weight: 400;}
+        }
+      }
+    }
+    .kboard-search{display: none;}
+  }
+  #kboard-document{display: flex;
+    #kboard-ocean-gallery-document{max-width: 80vw; margin: 0 auto;
+      .kboard-document-wrap{background-color: transparent; @include flex_column; gap: 3em;
+        .kboard-document-action{display: none;}
+        .kboard-title{
+          p{padding: 0; @include h2; font-family: "area-extended", Sans-serif; font-weight: 600; color: #000; line-height: 1.1em;}
+        }
+  
+        .kboard-detail{border: none; background-color: transparent; display: flex;
+          .detail-attr{padding: 0; @include link; width: 100%;
+            &.detail-writer,&.detail-view, .detail-name:not(.detail-category1 .detail-name){display: none;}
+            .detail-name{font-weight: 400; color: black; padding: 0em 1.25em; @include border; border-radius: 50px;}
+            .detail-value{padding: 0; color: black;}
+          }
+        }
+        
+        .kboard-content{
+          .content-view{padding: 0;
+            h2{font-size: unset;}
+          }
+        }
+      }
+    }
+  }
+  #kboard-ocean-gallery-editor{
+    $height:50px;
+    .kboard-attr-row, .kboard-content{background-color: transparent; border: none;}
+    .kboard-attr-row{padding: 0 0 0.5em;
+      .attr-name, .attr-value{line-height: $height;}
+      .attr-value{
+        input:not(#kboard-input-thumbnail),select{height: $height; @include border_tnb(0, 1px, $color_grey_03); width: 100%; @include h4;}
+        a{color: $color_grey_02; @include h5;}
+      }
+      .attr-name{font-size: 16px; font-weight: 400; padding-left: 0;}
+      &.kboard-attr-content{
+        .attr-name{display: none;}
+        h2{font-size: unset;}
+      }
+    }
+  }
+  .kboard-control{
+    margin-top: 3em;
+    .left .kboard-ocean-gallery-button-small:not(:first-child){display: none}
+    .kboard-ocean-gallery-button-small{@include h5; padding: 0.5em 1.25em!important; line-height: 1; height: auto!important; border-radius: 6.25em;}
+  }
+}
+
+@include max-tb{
+  .sub04_section02{
+    #kboard-ocean-gallery-list{
+      .kboard-header .kboard-category{padding-bottom: 6em;
+        .kboard-category-list{
+          li{font-size: 16px;
+            a{font-size: 0.88em;}
+          }
+        }
+      }
+      .kboard-list{flex-direction: column;
+        .kboard-gallery-item{
+          width: 100%; margin-top: 3em!important;
+          &:first-child{margin-top: 0!important;}
+          a{font-size: 16px;}
+        }
+      }
+    }
+    #kboard-document{
+      #kboard-ocean-gallery-document{max-width: 100vw;}
+    }
+  }
+}
+
+@include mb{
+  .sub04_section02{
+    #kboard-ocean-gallery-list{
+      .kboard-header .kboard-category .kboard-category-list{@include grid($columns:repeat(2, 1fr));gap: 0.625em;
+        li a{width: 100%; display: block; text-align: center;}
+      }
+    }
+  }
+}

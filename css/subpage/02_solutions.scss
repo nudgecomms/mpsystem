@@ -1,0 +1,58 @@
+@import '../_mixin', '../_variables';
+
+html[data-useragent*='Mac OS X']{
+} 
+
+// ---페이지 이동 버튼---
+.solutions_nav_wrapper{@include border(2px, #000); border-radius: 50px;
+  .solutions_nav{background: #fff; border-radius: 50px; font-size: 0; display: flex; align-items: center; @include border(4px, #fff); font-size: 1vw;
+    a{flex:1; color: #000; text-decoration: none; z-index: 1; display: inline-block; text-align: center; font:{weight:600 !important; family:"area-extended", Sans-serif !important; size:clamp(18px, 1.375em, 1.375em);} padding: 0.5em 0 ;
+      // span{font-size:clamp(18px, 1.375em, 1.375em);}
+      &:hover{color: #fff;}
+      &.on{color: #000 !important;}
+    }
+  
+    .animation{position: absolute; @include size(calc(50% - 6px), calc(100% - 12px)); top: 6px; z-index: 0; background: #000; border-radius: 50px; transition: all .5s ease 0s;}
+    .start-home, a:nth-child(1):hover~.animation{left: 6px;}
+    a:nth-child(2):hover~.animation{left: 50%;}
+  }
+  &.solution .solutions_nav{
+    a:nth-child(1):not(:hover){color: #fff;}
+  }
+  &.product .solutions_nav{
+    a:nth-child(1):hover ~ a{color: #000;}
+    a:nth-child(2){color: #fff;}
+    .animation{left: 50%;}
+  }
+}
+// ---페이지 이동 버튼 end---
+.solution_conatiner_02{
+  .lnb .elementor-item{@include border($color:$color_grey_02); border-radius: 50px;
+    &:hover{@include border($color:black); background-color: black;}
+    &.elementor-item-active:hover{color: white!important;}
+  }
+}
+//thumnail
+.solution_content_thum .elementor-loop-container > .e-loop-item,
+.product_content_thum .elementor-image-gallery > .gallery > .gallery-item{
+  &:not(&.on){position: absolute; opacity: 0; transition: 1.5s;}
+  img{width: 100%;}
+  &.on{display: unset; opacity: 1; transition: 1.5s;}
+}
+//thumnail end
+@include max-tb{
+  // ---solution/product 공통---
+  .solutions_nav_wrapper .solutions_nav{font-size: 16px;
+    a{padding: 0.5em 1em; font-size: 1.13em;}
+  }
+  // ---solution/product 공통 end---
+}
+@include mb{
+  // ---solution/product 공통---
+  .solution_conatiner_02{
+    .lnb .elementor-nav-menu{@include grid($columns: repeat(2, 1fr)); gap: 0.625em; width: 100%; 
+      a{margin: 0 !important; justify-content: center;}
+    }
+  }
+  // ---solution/product 공통 end---
+}

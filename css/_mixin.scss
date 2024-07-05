@@ -1,0 +1,57 @@
+@import "_variables.scss";
+
+@mixin size($w, $h){width: $w; height: $h;}
+@mixin center($position:absolute, $left:50%, $top:50%, $translateX:-50%, $translateY:-50%){position: $position; left: $left; top: $top; transform: translate($translateX, $translateY);}
+
+@mixin flex($align:center, $justify:center){display: flex; align-items: $align; justify-content: $justify;}
+@mixin flex_gap($gap){display: flex; gap: $gap;}
+@mixin flex_column{display: flex; flex-direction: column;}
+@mixin grid($columns: null) {display: grid !important; grid-template-columns: $columns;}
+
+@mixin list($list-type){
+  ol,ul{li{list-style-type:'$list-type'; margin-left: 10px; padding-left: 5px;}}
+}
+
+@mixin font{font-family: var(--e-global-typography-primary-font-family);}
+@mixin icon_font($content, $weight){content: $content; font-family: "Font Awesome 5 Free"; font-weight: $weight;}
+
+@mixin border($weight:1px, $color:#000){border: $weight solid $color;}
+@mixin border_tnb($top:1px, $bottom:1px, $color:black){border-width: $top 0 $bottom 0 !important; border:solid $color;}
+
+@mixin ellipsis{display: -webkit-box; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; word-wrap: normal;}
+
+@mixin filter_white{filter:brightness(0) invert(1);}
+@mixin filter_black{filter: grayscale(100%) brightness(0);}
+@mixin filter_main01{filter:invert(67%) sepia(34%) saturate(1749%) hue-rotate(185deg) brightness(100%) contrast(107%);}
+@mixin filter_main02{filter:invert(23%) sepia(56%) saturate(4362%) hue-rotate(210deg) brightness(107%) contrast(101%);}
+
+@mixin link{font-size: clamp(18px, 1.375em, 1.375em)!important;
+  @include max-tb{font-size: 1.13em!important;}
+}
+@mixin h1{font-size: 5em; letter-spacing: -0.05em;
+  @include tb{font-size: 3em;}
+  @include mb{font-size: 2.5em;}
+}
+@mixin h2{font-size: 4.5em; letter-spacing: -0.05em;
+  @include tb{font-size: 2.5em;}
+  @include mb{font-size: 2em;}
+}
+@mixin h3{font-size: 3em; letter-spacing: -0.05em;
+  @include max-tb{font-size: 2em;}
+}
+@mixin h4{font-size: clamp(16px, 1.125em, 1.125em);
+  @include max-tb{font-size: 1em;}
+}
+@mixin h5{font-size: clamp(14px, 0.9375em, 0.9375em)!important;
+  @include max-tb{font-size: 0.88em!important}
+}
+
+@mixin touch_snap($gap:20px !important,$margin-b:10px){display: flex !important; flex-wrap: nowrap !important; white-space: nowrap; overflow-x: auto; justify-content: flex-start !important; overflow-y: hidden; gap: $gap !important; margin-bottom: $margin-b;
+  &::-webkit-scrollbar{height: 0;}
+}
+// media query
+@mixin pc {@media (min-width: #{$pc}) {@content;}}
+@mixin max-tb{@media (max-width: #{$pc - 1px}){@content;}}
+@mixin tb {@media (min-width: #{$tb}) and (max-width: #{$pc - 1px}) {@content;}}
+@mixin min-tb{@media (min-width: #{$tb}){@content;}}
+@mixin mb {@media (max-width: #{$tb - 1px}) {@content;}}

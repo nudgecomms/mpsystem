@@ -1,0 +1,71 @@
+@import '../_mixin', '../_variables';
+
+// ---solution/product 공통---
+.solution_conatiner_02{
+  .lnb .elementor-item{@include border($color:$color_grey_02); border-radius: 50px;
+    &:hover{@include border($color:black); background-color: black;}
+    &.elementor-item-active:hover{color: white!important;}
+  }
+}
+.solution_content_list .elementor-loop-container{counter-reset : numbering;
+  .e-loop-item{@include border_tnb(0px, 1px, #000); display: flex; align-items: center; justify-content: space-between;
+    a{padding: 1.25em 1em; transition: .3s; font-size: 1vw; align-items: center;
+      .elementor-page-title{font-size: 1vw;}
+      .elementor-heading-title{display: flex; gap: 2em;
+        &::before{counter-increment : numbering; content : '0' counter(numbering);color: #000; font:{size:1rem;family:'Pretendard';weight: 400;}; line-height: 1; min-width: 18px; top: 5px; position: relative; }
+      }
+    }
+    &.on{background-color: #000;
+      a{
+        &:after{content: url('/wp-content/uploads/2024/05/main01_arrow_icon.svg'); width:clamp(15px,0.7em,0.7em); position: absolute; right: 1em; font-size: clamp(18px, 1.375em, 1.375em);}
+        .elementor-heading-title{color:#fff;
+          &::before{color: #fff;}
+        }
+      }
+    }
+  }
+}
+// ---solution/product 공통 end---
+// ---solution---
+.solution{
+  &>.e-con-inner{overflow: hidden;
+    .solution-thum{transition: .3s;}
+  }
+  &:hover{.solution-thum{transform: scale(1.05);}}
+}
+// ---solution end---
+// ---product---
+.title_icon_wapper .cls-1{fill: $main_color_01!important;}
+// ---product end---
+@include max-tb{
+  // ---solution/product 공통---
+  .solutions_nav_wrapper .solutions_nav{font-size: 16px;
+    a{padding: 0.5em 1em; font-size: 1.13em;}
+  }
+  .solution_content_list .elementor-loop-container .e-loop-item a .elementor-page-title {font-size: 16px;}
+  // (list mb)
+  .solutions_mb_list{
+    .e-n-accordion-item-title-text{
+      @include flex_gap(1.5em); align-items: flex-start!important;
+      .numbering{font-size: 1rem; font-family: "Pretendard"; font-weight: 400; line-height: 1; min-width: 18px; padding-top: 5px;}
+    }
+  }
+  // (list mb end)
+  // ---solution/product 공통 end---
+}
+@include mb{
+  // ---solution/product 공통---
+  .solution_conatiner_02{
+    .lnb .elementor-nav-menu{@include grid($columns: repeat(2, 1fr)); gap: 0.625em; width: 100%; 
+      a{margin: 0 !important; justify-content: center;}
+    }
+  }
+  // ---solution/product 공통 end---
+  // (list mb)
+  .solutions_mb_list{
+    .e-n-accordion-item-title-text{
+      .numbering{font-size: 0.875rem;}
+    }
+  }
+  // (list mb end)
+}

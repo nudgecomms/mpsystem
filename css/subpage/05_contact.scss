@@ -1,0 +1,71 @@
+@import '../_mixin', '../_variables';
+
+$radius : 0.5em;
+
+.sub05_section01{
+  .quform{
+    ::selection{background: $main_color_01; color: #fff;}
+
+    .quform-upload-dropzone, .quform-upload-file{font-size: 1vw;}
+
+    .quform-label-text, .quform-description{color: $color_grey_02; @include h5; font-style: unset;}
+    option{background-color: #000; @include h5;}
+    .quform-required{color: $color_grey_02;}
+    .quform-description{color: $color_grey_01;}
+
+    .quform-field{
+      &-select, &-email, &-text, &-file, &-captcha{min-height: 4.5em; background-color: transparent; color: #fff; border-radius: $radius; border-color: $color_grey_01; padding-left: 1.5em;
+        &:focus{border-color: #fff;}
+      }
+    }
+
+    .quform-upload-dropzone{background-color: transparent; border: 1px dashed $color_grey_01 !important;
+      &-text, &-icon .qicon-file_upload:before{color: $color_grey_01; @include h5;}
+    }
+    .quform-upload-file{background-color: rgb(255, 255, 255, 0.2); border: none;
+      .quform-upload-file{
+        &-name{@include h5; color: #fff;}
+        &-remove{
+          &::before,&::after{background-color: #fff;}
+        }
+      }
+    }
+    .quform-field-textarea{background-color: transparent; border: 1px solid $color_grey_01; border-radius: $radius; color: #fff; padding: 1.5em; min-height: 15em;}
+    
+    .quform-captcha img{min-width: 8em;}
+
+    .quform-submit{border-radius: 100px; padding: 2em; font-size: 1vw; font-weight: 700; margin: 3em 0 0;
+      .quform-button-text{@include link;}
+    }
+    /* (개인정보처리방침) */
+    .privacy_wrapper{
+      /* 버튼 */
+      .quform-option{display: flex !important; gap: 5px; align-items: center;
+        &-text{color: $color_grey_02; @include h5;
+          a.privacy{color: #fff; @include h5;}
+        }
+      }
+      input{
+        &[type=checkbox]{@include size(25px, 25px); border-radius: 5px;overflow: visible; appearance: none; cursor: pointer; text-align: center; @include border($color:$color_grey_02); margin-right: 5px;
+        &[type=checkbox]:checked{background: $color_grey_02;
+            &:after{content: "✔"; position: relative; top: 0.1px; color: #fff;}
+          }
+        }
+      }
+      /* 버튼 end */
+      .quform-option-label{padding: 0 !important; line-height: 1.3em; font-size: 1vw;}
+    }
+    /* (개인정보처리방침 end) */
+    /* (error & success message) */
+    .quform-error-inner{background-color: rgb(255, 255, 255, 0.2) !important; border:none !important; padding:0.5em !important; font-size:14px;
+      .quform-error-text{color: #fff;}
+    }
+    /* (error & success message end) */
+  }
+}
+@include max-tb{
+  .sub05_section01 .quform{
+    .quform-upload-dropzone, .quform-upload-file, .quform-submit, .quform-option-label{font-size: 16px!important;}
+    .privacy_wrapper .quform-option-text a.privacy{color: #fff; font-size: clamp(14px, 0.9375em, 0.9375em) !important;}
+  }
+}

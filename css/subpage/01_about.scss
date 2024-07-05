@@ -1,0 +1,35 @@
+@import '../_mixin', '../_variables';
+
+.sub01_section02{
+    .left .bg_img{position: absolute; right: -5em; top: 2em;transform: scale(1.1);}
+    .right .img_text{@include center; width: 100%;}
+}
+
+.sub01_section05{
+  .carousel .e-n-carousel{
+      overflow: visible;
+      .elementor-image-box-content{@include grid($columns:1fr 1fr); flex-direction: row; text-align: left;}
+    }
+}
+@include pc{
+  .sub01_section05{
+    .carousel .e-n-carousel{
+      padding-inline-start: 14.5em;
+    }
+  }
+}
+@include tb{
+  .sub01_section02{
+    .bottom{
+      .left .bg_img{right: -3em; top: 8em; transform: scale(1.5);}
+    }
+  }
+}
+@include mb{
+  .sub01_section02{
+      .left .bg_img{right: -3em; top: 1em; transform: scale(1);}
+      .right{@include flex_column;
+        .img_text{position: unset; transform: translate(0);}
+      }
+  }
+}

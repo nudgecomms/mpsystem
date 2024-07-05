@@ -1,0 +1,67 @@
+@import '../_mixin', '../_variables';
+
+//popup
+.popup_close{display: none; opacity: 0; transition: .5s; cursor: pointer;
+  &.on{display: block; opacity: 1; z-index: 99999 !important; transition: .5s; animation: rotate 1.5s forwards;}
+  .elementor-icon{font-size: 2.5em!important;}
+}
+.popup{
+  &.on{animation: popup_on .5s forwards; z-index: 9999 !important;}
+  &:not(&.on){z-index: -10 !important; animation: popup_off .5s forwards; opacity: 0;}
+  .e-n-carousel{
+    .elementor-widget-video,.e-hosted-video,.elementor-widget-image{height: 100%; width: 100%;}
+    video,img{width: 100%; height: 100vh; object-fit: cover;}
+  }
+  .elementor-image-box-wrapper .elementor-image-box-title{margin-left: -0.1em;}
+}
+//popup end
+@keyframes popup_on {
+  0%{opacity: 0;}
+  100%{opacity: 1;}
+}
+@keyframes popup_off {
+  0%{opacity: 1;}
+  100%{opacity: 0;}
+}
+
+.product_content_list .elementor-icon-list-items{counter-reset : numbering;
+  .elementor-icon-list-item{@include border_tnb(0px, 1px, #000); display: flex; align-items: center; justify-content: space-between; padding: 1.25em 1em!important; transition: .3s; cursor: pointer;
+    .elementor-page-title{font-size: 1vw;}
+    .elementor-heading-title, .elementor-icon-list-text{display: flex; gap: 2em;  align-items: center;
+      &::before{counter-increment : numbering; content : '0' counter(numbering);color: #000; font:{size:1rem;family:'Pretendard';weight: 400;}; line-height: 1; min-width: 18px; position: relative; top: -3px;}
+    }
+    &.on{background-color: #000;
+      .elementor-icon-list-text:after{content: url('/wp-content/uploads/2024/05/main01_arrow_icon.svg'); width:clamp(15px,0.7em,0.7em); position: absolute; right: 1em;}
+      .elementor-heading-title,.elementor-icon-list-text{color:#fff;
+        &::before{color: #fff;}
+      }
+    }
+  }
+}
+
+@include max-tb{
+    // (popup)
+    .popup{
+      .e-n-carousel{
+          video,img{height: 100%;}
+      }
+    }
+    // (popup end)
+    // (list mb)
+  .product_content_mb{
+    .e-n-accordion-item-title-text{
+      @include flex_gap(1.5em); align-items: flex-start!important;
+      .numbering{font-size: 1rem; font-family: "Pretendard"; font-weight: 400; line-height: 1; min-width: 18px; padding-top: 5px;}
+    }
+  }
+  // (list mb end)
+}
+@include mb{
+  // (list mb)
+  .product_content_mb{
+    .e-n-accordion-item-title-text{
+      .numbering{font-size: 0.875rem;}
+    }
+  }
+  // (list mb end)
+}

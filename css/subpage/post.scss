@@ -1,0 +1,83 @@
+@import '../_mixin', '../_variables';
+
+.post-navigation__prev--title, .post-navigation__next--title{line-height: 1.3em;}
+// post navigation
+.elementor-post-navigation{flex-direction: row-reverse; gap:1.25em;
+	.elementor-post-navigation__link{
+		a>span{overflow: unset; font-size: 1vw;}
+		&.elementor-post-navigation{
+			&__prev, &__next{
+				.elementor-post-navigation__link{
+					&__prev,&__next{
+						&:after{@include size(25em, auto); position: absolute; bottom: -1em;}
+					}
+				}
+			}
+			&__prev a{justify-content: flex-end!important; margin-right: 2em;
+				.elementor-post-navigation__link__prev{
+					&::after{content: url("/wp-content/uploads/2024/05/post_nav_arrow_icon_next-1.svg"); right: 1.25em;}
+				}
+			}
+			&__next a{justify-content: flex-start!important; margin-left: 2em;
+				.elementor-post-navigation__link__next{
+					&::after{content: url("/wp-content/uploads/2024/05/post_nav_arrow_icon_prev-1.svg"); left: 1.25em;}
+				}
+			}
+		}
+	}
+}
+// post navigation end
+@include max-tb{
+	// post navigation
+	.elementor-post-navigation .elementor-post-navigation__link{
+		a>span{overflow: hidden; font-size: 16px;}
+		&.elementor-post-navigation{
+			&__prev, &__next{
+				.elementor-post-navigation__link{
+					&__prev,&__next{
+						&:after{@include size(21em, auto);bottom: -0.5em;}
+					}
+				}
+			}
+			&__prev a .elementor-post-navigation__link__prev{
+				&::after{right: 1em;}
+				.post-navigation__prev--title{width: 18em; text-align: right;}
+			}
+			&__next a .elementor-post-navigation__link__next{
+				&::after{left: 1em;}
+				.post-navigation__next--title{width: 18em; text-align: left;}
+			}	
+		}
+	}
+	// post navigation end
+}
+
+@include mb{
+		// post navigation
+		.elementor-post-navigation .elementor-post-navigation__link{
+			a>span{overflow: hidden; font-size: 16px;}
+			&.elementor-post-navigation{
+				&__prev, &__next{
+					.elementor-post-navigation__link{
+						&__prev,&__next{
+							&:after{@include size(calc(50% - 2em), auto);}
+						}
+					}
+				}
+				&__prev a{margin-right: 1.25em;
+					.elementor-post-navigation__link__prev{
+						&::after{right: 1em;}
+						.post-navigation__prev--title{width: 100%; font-size: 10px;}
+					}
+				}
+				&__next a{margin-left: 1.25em;
+					.elementor-post-navigation__link__next{
+						&::after{left: 1em;}
+						.post-navigation__next--title{width: 100%; font-size: 10px;}
+					}	
+				}
+
+			}
+		}
+		// post navigation end
+}

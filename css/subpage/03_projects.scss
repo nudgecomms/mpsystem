@@ -1,0 +1,125 @@
+@import '../_mixin', '../_variables';
+
+$radius:0.5em;
+.sub03_section02{
+  .key_projects_wapper{
+    // (info)
+    .item .elementor-icon-list-items{justify-content: space-between; align-items: flex-start;
+      .elementor-icon-list-item{width: 5em;
+        &:first-child{width: 1.5em;}
+        .elementor-icon-list-text{width: 100%; text-align: center;}
+      }
+    }
+    // (info end)
+    // (img)
+    .elementor-widget-image{
+      overflow: hidden;
+      .wp-caption{height: 20em;
+        img{height: 100%; object-fit: cover; transition: all 0.5s;}
+        // (caption)
+        .widget-image-caption {position: absolute; top:0; @include h4; transition: all 0.5s; padding: 0.625em; width: 100%; text-align: left; border-bottom: 1px solid;}
+        // (caption end)
+      }
+    }
+    // (img end)
+  }
+}
+.sub03_section03{
+  .yotu-playlist,.yotu-videos{padding: 0;}
+  .yotu-mode-grid ul{
+    li{
+      margin-bottom: 0;
+      a{font-size: 1vw;
+        .yotu-video{
+          &-thumb-wrp{overflow: hidden; border-radius: $radius;
+            &::after{width: 7%;}
+          }
+          &-title{@include link; color: #000; white-space:pre-wrap; @include font;}
+        }
+        &:hover{.yotu-video-title{text-decoration: unset;}}
+      }
+      &:nth-child(even){margin-top: 12em!important;}
+    }
+  }
+}
+.yotu-lightbox{
+  .yotu-lightbox-body{left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important;
+    .yotu-lightbox-content{width: 70vw;}
+  }
+}
+@include pc{
+  .sub03_section02{
+    .key_projects_wapper{
+      .elementor-widget-image{
+        //(Residential)
+        &:nth-child(2){grid-column: 2 / 4;}
+        &:nth-child(3){grid-column: 4 / 5; grid-row: -3 / -1;
+          .wp-caption{height: 100%;}}
+        &:nth-child(7){grid-column: 1 / 3;}
+        &:nth-child(10){ grid-row: 4 / 6;
+          .wp-caption{height: 100%;}}
+        &:nth-child(13){grid-column: 4 / 5;  grid-row: 4 / 6;
+            .wp-caption{height: 100%;}}
+        &:nth-child(17){grid-column: 2 / 4;}
+        &:nth-child(20){grid-column: 2 / 4;}
+        &:nth-child(21){grid-column: 4 / 5;  grid-row: 7 / 10;
+          .wp-caption{height: 100%;}}
+        &:nth-child(32){grid-column: 1 / 3;}
+        &:nth-child(33){grid-column: 3 / 5;}
+        
+        //(Residential end)
+        //(Mall)
+        &:nth-child(35){ grid-column: 2 / 3; grid-row: 12 / 14;
+          .wp-caption{height: 100%;}}
+        &:nth-child(39){grid-column: 3 / 5;}
+        //(Mall end)
+        //(Office Building)
+        &:nth-child(40){ grid-column: 2 / 3; grid-row: 14 / 16;
+          .wp-caption{height: 100%;}}
+        &:nth-child(47){ grid-column: 4 / 5; grid-row: 15 / 17;
+            .wp-caption{height: 100%;}}
+        &:nth-child(48){grid-column: 1 / 3;}
+        //(Office Building end)
+        // (Hotel)
+        &:nth-child(52){grid-column: 3 / 5;}
+        &:nth-child(56){ grid-column: 4 / 5; grid-row: 18 / 20;
+          .wp-caption{height: 100%;}}
+        &:nth-child(58){grid-column: 2 / 4;}
+        // (Hotel end)
+        // //(Commercial)
+        &:nth-child(61){grid-column: 3 / 5;}
+        &:nth-child(63){grid-column: 2 / 4;}
+        &:nth-child(64){grid-column: 4/ 5; grid-row: 21 / 23;
+          .wp-caption{height: 100%;}
+        }
+
+        .wp-caption{
+          img{filter: grayscale(100);}
+          // (caption)
+          .widget-image-caption{top: -30%;}
+          &:hover{
+            img{filter: none;}
+            .widget-image-caption{top: 0;}
+          }
+          // (caption end)
+        }
+      }
+    }
+  }
+}
+@include max-tb{
+  .sub03_section02{
+    .key_projects_wapper{
+      .elementor-widget-image .wp-caption{height: 15em;}
+    }
+  }
+  .sub03_section03{
+    .yotu-mode-grid ul{
+      flex-direction: column;
+      li{ width: 100%!important; margin-right: 0!important;
+        &:not(:first-child){margin-top: 3em!important; }
+        a{font-size: 16px;}
+      }
+    }
+  }
+}
